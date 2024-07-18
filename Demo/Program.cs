@@ -3,6 +3,7 @@ using Demo.interfaceEX02;
 using Demo.interfaceEX03;
 using System.Diagnostics.Metrics;
 using System.Drawing;
+using System.Text;
 using System.Threading.Channels;
 
 namespace Demo
@@ -42,6 +43,23 @@ namespace Demo
             Console.WriteLine();
         }
         public static void PrintStringArray(string[] arr, int num)
+        {
+            if (arr == null)
+            {
+                return;
+            }
+            Console.WriteLine($"HashCode = #{arr.GetHashCode()}");
+
+            Console.Write($"Array0{num}= [");
+            foreach (var item in arr)
+            {
+                Console.Write($" '{item}' ");
+            }
+            Console.Write("]");
+            Console.WriteLine();
+        }
+
+        public static void PrintStringBuilderArray(StringBuilder[] arr, int num)
         {
             if (arr == null)
             {
@@ -217,6 +235,55 @@ namespace Demo
             #endregion
             #endregion
 
+            #region Deep Copy && Shallow Copy (Mutable Type)
+            //StringBuilder[] Name01 = new StringBuilder[1]; //create reference of string builider  
+            ////Name01[0].Append("Omar"); (xxx)-->null reference excption
+            //Name01[0] = new StringBuilder("Omar");
+            //StringBuilder[] Name02 = new StringBuilder[1]; //create reference of string builider  
+            //Console.WriteLine("Before Any thing");
+            //PrintStringBuilderArray(Name01, 1);
+            //PrintStringBuilderArray(Name02, 2);
+
+            #region Shallow coppy (Mutable type)
+            //// Shallow Copy: Name02 now references the same array as Name01
+            //Name02 = Name01;
+
+            //Console.WriteLine("After Shallow Copy");
+            //PrintStringBuilderArray(Name01, 1);
+            //PrintStringBuilderArray(Name02, 2);
+
+            //// Modify Name02, which also affects Name01 due to shallow copy
+            //Name02[0].Append(" Ahmed");
+
+            //Console.WriteLine("After Changing Value");
+            //PrintStringBuilderArray(Name01, 1);
+            //PrintStringBuilderArray(Name02, 2);
+
+            //// A shallow copy involves creating a new reference to the same object, without creating an independent copy of the object.
+            ////Any changes to the mutable object's state (content) through any reference will affect all other references that point to the same object.
+            ////In this example, modifying the StringBuilder content through Name02 also affects Name01 because they reference the same StringBuilder object.
+            #endregion
+
+            #region Deep Copy (Mutable type)
+            //// Deep copy using Clone method
+            //// The Clone method creates a new array object
+            //// This new object has a different identity
+            //// This new object has the same state (data) as the caller object
+            //Name02 = (StringBuilder[])Name01.Clone();
+
+            //Console.WriteLine("After Deep Copy");
+            //PrintStringBuilderArray(Name01, 1);
+            //PrintStringBuilderArray(Name02, 2);
+
+            //// Modify Name02 independently
+            //Name02[0].Append(" Osman");
+
+            //Console.WriteLine("After Changing Value");
+            //PrintStringBuilderArray(Name01, 1);
+            //PrintStringBuilderArray(Name02, 2);
+            #endregion
+
+            #endregion
         }
     }
 }
