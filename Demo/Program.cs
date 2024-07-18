@@ -2,6 +2,7 @@
 using Demo.interfaceEX02;
 using Demo.interfaceEX03;
 using System.Diagnostics.Metrics;
+using System.Drawing;
 using System.Threading.Channels;
 
 namespace Demo
@@ -36,6 +37,22 @@ namespace Demo
             foreach (var item in arr)
             {
                 Console.Write($" {item} ");
+            }
+            Console.Write("]");
+            Console.WriteLine();
+        }
+        public static void PrintStringArray(string[] arr, int num)
+        {
+            if (arr == null)
+            {
+                return;
+            }
+            Console.WriteLine($"HashCode = #{arr.GetHashCode()}");
+
+            Console.Write($"Array0{num}= [");
+            foreach (var item in arr)
+            {
+                Console.Write($" '{item}' ");
             }
             Console.Write("]");
             Console.WriteLine();
@@ -147,6 +164,58 @@ namespace Demo
 
             #endregion
 
+            #region Deep Copy && Shallow Copy (Reference Type)
+            //string[] Name01 = { "Ali", "Mona" };
+            //string[] Name02 = { "Omran", "Mostafa" };
+            //Console.WriteLine("Brfore any thing Shallow Copy");
+            //PrintStringArray(Name01, 1);
+            //PrintStringArray(Name02, 2);
+
+            #region Shallow Copy (Reference Type) 
+            //// Shallow Copy: Name02 now references the same array as Name01
+            //Name02 = Name01;
+
+            //Console.WriteLine("After Shallow Copy");
+            //PrintStringArray(Name01, 1);
+            //PrintStringArray(Name02, 2);
+
+            //// Modify Name02, which also affects Name01 due to shallow copy
+            //Name02[1] = "Bl7";
+
+            //Console.WriteLine("After changing value");
+            //PrintStringArray(Name01, 1);
+            //PrintStringArray(Name02, 2);
+
+            ////A shallow copy involves creating a new reference to the same object, without creating an independent copy of the object.
+            ////Any changes to the object through any reference will affect all other references that point to the same object.
+            ////In this example, modifying the array through Name02 also affects Name01 because they reference the same array object.
+            #endregion
+
+            #region Deep Copy (Reference Type)
+            //// Deep copy using Clone method
+            //// The Clone method creates a new array object
+            //// This new object has a different identity
+            //// This new object has the same state (data) as the caller object
+            //Name02 = (string[])Name01.Clone();
+
+            //Console.WriteLine("After Deep Copy");
+            //PrintStringArray(Name01, 1);
+            //PrintStringArray(Name02, 2);
+
+            //// Modify Name02 and Name01 independently
+            //Console.WriteLine("After changing any value");
+            //Name02[1] = "Wanees";
+            //Name01[0] = "hambpzo";
+
+            //// Print arrays after modification
+            //PrintStringArray(Name01, 1);
+            //PrintStringArray(Name02, 2);
+
+            ////The Clone method creates a new array object with the same data as the original array.
+            ////The new array object has a different identity(hash code) from the original array.
+            ////Changes to one array do not affect the other, ensuring their independence.
+            #endregion
+            #endregion
 
         }
     }
