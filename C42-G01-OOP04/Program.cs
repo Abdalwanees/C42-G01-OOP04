@@ -1,4 +1,6 @@
-﻿using System;
+﻿using C42_G01_OOP04.AuthenticationService;
+using C42_G01_OOP04.Shape;
+using System;
 
 namespace C42_G01_OOP04
 {
@@ -48,6 +50,53 @@ namespace C42_G01_OOP04
             //Answer: c) By separating interface names with commas
             #endregion
 
+
+            #region Part02
+
+            #region Q01
+            //Circle circle = new Circle(5);
+            //circle.DisplayShapeInfo();
+
+            //Rectangle rectangle = new Rectangle(5, 6);
+            //rectangle.DisplayShapeInfo();
+            #endregion
+
+            #region Q2
+            //IAuthenticationService authService = new BasicAuthenticationService();
+
+            //string username = "Ali";
+            //string password = "122";
+            //string role = "user";
+
+            //bool isAuthenticated = authService.AuthenticateUser(username, password);
+            //bool isAuthorized = authService.AuthorizeUser(username, role);
+
+            //Console.WriteLine($"User authenticated: {isAuthenticated}");
+            //Console.WriteLine($"User authorized: {isAuthorized}");
+            #endregion
+
+            #region Q3
+            INotificationService emailService = new EmailNotificationService(); 
+            INotificationService smsService = new SmsNotificationService();
+            INotificationService pushService = new PushNotificationService();
+
+            string emailRecipient = "Gabdo@gmail.com";
+            string smsRecipient = "01254644455";
+            string pushRecipient = "Gabdo@gmail.com";
+
+            string emailMessage = " your order has been shipped and will arrive soon.";
+            string smsMessage = " your verification code is 123456.";
+            string pushMessage = " you have a new message in your inbox.";
+
+            emailService.SendNotification(emailRecipient, emailMessage);
+            smsService.SendNotification(smsRecipient, smsMessage);
+            pushService.SendNotification(pushRecipient, pushMessage);
+
+
+
+            #endregion
+
+            #endregion
         }
     }
 }
