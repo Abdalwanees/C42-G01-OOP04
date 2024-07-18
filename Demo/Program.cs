@@ -1,5 +1,6 @@
 ﻿using Demo.interfaceEX01;
 using Demo.interfaceEX02;
+using Demo.interfaceEX03;
 
 namespace Demo
 {
@@ -23,14 +24,14 @@ namespace Demo
         static void Main(string[] args)
         {
             #region 01 Animals Sound 
-            IAnimal myDog = new Dog { Name = "Buddy" };
-            IAnimal myCat = new Cat { Name = "Whiskers" };
+            //IAnimal myDog = new Dog { Name = "Buddy" };
+            //IAnimal myCat = new Cat { Name = "Whiskers" };
 
-            Console.WriteLine($"Dog's name: {myDog.Name}");
-            myDog.MakeSound();  // Output: Woof!
+            //Console.WriteLine($"Dog's name: {myDog.Name}");
+            //myDog.MakeSound();  // Output: Woof!
 
-            Console.WriteLine($"Cat's name: {myCat.Name}");
-            myCat.MakeSound();  // Output: Meow!
+            //Console.WriteLine($"Cat's name: {myCat.Name}");
+            //myCat.MakeSound();  // Output: Meow!
             #endregion
 
             #region Arithmetic Series
@@ -42,7 +43,33 @@ namespace Demo
             //GetTenNumbreSeriesByTwo(series); 
             #endregion
 
+            #region Implement Interface (Implicitly&Explicitly)
+            #region Implicitly
+            //IMovable car=new Car();
+            //car.Forward();
+            //car.Backword();
+            //car.Right();
+            //car.Left();
+            #endregion
 
+            #region Explicitly
+            //IMovable myMovableAirplane = new Airplane();
+            //IFlyable myFlyableAirplane = new Airplane();
+
+            //Console.WriteLine("Airplane movements:");
+            //myMovableAirplane.Forward();
+            //myMovableAirplane.Backword();
+            //myMovableAirplane.Left();
+            //myMovableAirplane.Right();
+
+            //Console.WriteLine("\nAirplane flying capabilities:");
+            //myFlyableAirplane.TakeOff();
+            //myFlyableAirplane.Fly();
+            //myFlyableAirplane.Land();
+            //myFlyableAirplane.Left();
+            //myFlyableAirplane.Right(); 
+            #endregion 
+            #endregion
         }
     }
 }
