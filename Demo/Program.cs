@@ -1,4 +1,5 @@
-﻿using Demo.interfaceEX01;
+﻿using Demo.BuildIn_Interface.IClonable;
+using Demo.interfaceEX01;
 using Demo.interfaceEX02;
 using Demo.interfaceEX03;
 using System.Diagnostics.Metrics;
@@ -284,6 +285,49 @@ namespace Demo
             #endregion
 
             #endregion
+
+            #region BuildIn Interface
+            #region IClonable
+
+
+            //Employee employee = new Employee() 
+            //{ 
+            //    Id = 1, Name = "Omran", Salary=5_000 , Department = new Department()  { Id=101 , Name="sales"}
+
+            //};
+            //Employee employee02 = new Employee()
+            //{
+            //    Id = 2, Name = "omer", Salary = 4_000, Department = new Department() { Id = 102, Name = "Hr" }
+            //};
+
+            //Console.WriteLine($"HashCode of emp one = {employee.GetHashCode()}");
+            //Console.WriteLine($"HashCode of emp two = {employee02.GetHashCode()}");
+
+            //employee02 = (Employee) employee.Clone(); //Deep copy using clone method
+            //// Deep copy
+            //// clone method will generate new object with new and deffernt identity
+            //// this object will have the same object state of caller object 'arr1'
+
+            ////employee02 = new Employee(employee); // Deep copy by using copy constructor
+
+
+            //Console.WriteLine($"HashCode of emp one = {employee.GetHashCode()}");
+            //Console.WriteLine($"HashCode of emp two = {employee02.GetHashCode()}");
+            //Console.WriteLine("***********************");
+            //Console.WriteLine($"Employee one : {employee}");
+            //Console.WriteLine($"Employee one : {employee02}");
+
+            //if(employee02.Department is not null)
+            //     employee02.Department.Name = "new";
+
+            //Console.WriteLine(employee.Department.Name);
+
+            #endregion
+            #endregion
+
+
+
+
         }
     }
 }
